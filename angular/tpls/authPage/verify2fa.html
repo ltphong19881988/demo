@@ -1,0 +1,39 @@
+<div class="content-1 kryptunit-login-v2-group" ng-controller="loginCtrl">
+    <div class="panel panel-default data_background element-box-shadow register-v2" style="background-image: url(&quot;/img/background_register.png&quot;);">
+        
+        <div class="panel-heading text-left padding_30">
+            <img style="width: 345px;" src="/img/logo_login.png" class="img-responsive" alt="Logo">
+            <div style="width: 100%;display:inline-flex;">
+                <hr style="width:20%">
+                <p class="register_form" style="color: #fff;font-weight: 500;font-size: 21px;text-align:center;width:50%;padding-top:5px;"> Verify 2FA Form</p>
+                <hr style="width:20%">
+            </div>
+        </div>
+
+        <div class="panel-body login-v2">
+                <form id="form2FA" method="post" ng-submit="submit2FA($event)">
+                    <div id="html_element">
+                        <div class="alert"></div>
+                        <div class="row login_custom">
+                            <p ></p>
+                            <div class="col-md-12">
+                                <label class="text-bold text-white">Two Factory Authenticaton Token : </label><br>
+                                <input type="text" name="authToken" class="input-login" placeholder="Ex: 324768">
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <ul class="list-inline login-steps">
+                                    <li>
+                                        <button type="submit" class="btn btn-cryptic register-step text-bold">Verify Token</button>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+
+        </div>
+    </div>
+</div>

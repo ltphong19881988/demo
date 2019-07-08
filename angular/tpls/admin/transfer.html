@@ -1,0 +1,114 @@
+
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <aside class="profile-nav alt">
+                <section class="card">
+                    <div class="card-header bg-dark">
+                        <strong class="card-title text-light">Send USD For Member</strong>
+                    </div>
+                    <form id="formTransfer" class="form-horizontal" ng-submit="submitTransfer($event)">
+                        <div class="card-body">
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Username : </label></div>
+                                <div class="col-12 col-md-9 ui-widget">
+                                    <input type="text" id="username" name="username" placeholder="username" class="form-control autocomplete">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Amount : </label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" name="amount" placeholder="amount" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary ">
+                                <i class="fa fa-dot-circle-o"></i> Submit
+                            </button>
+                            <button type="reset" class="btn btn-danger ">
+                                <i class="fa fa-ban"></i> Cancel
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+            </aside>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <aside class="profile-nav alt">
+                <section class="card">
+                    <div class="card-header bg-dark">
+                        <strong class="card-title text-light">Histories</strong>
+                    </div>
+
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Tx ID</th>
+                                </tr>
+                            </thead>
+                            <!-- <tbody>
+                                <tr ng-repeat="(key, value) in listCurrencies">
+                                    <td ><img style="height:32px; width : 32px;" ng-src="{{value.img}}" ></img> </td>
+                                    <td ng-bind="value.name"></td>
+                                    <td>0</td>
+                                    <td>
+                                        <a title="Deposit" href="#" ng-click="deposit(value.pair, $event)" data-toggle="modal" data-target="#depositModal">
+                                            <span class="badge badge-success">Deposit</span>
+                                        </a>
+                                        <a title="Withdraw" href="#" ng-click="withdraw(value.pair)"><span class="badge badge-danger">Withdraw</span></a>
+                                        <a title="Send" href="#" ng-click="send(value.pair)"><span class="badge badge-warning">Send</span></a>
+                                    </td>
+                                </tr>
+                            </tbody> -->
+                        </table>
+                    </div>
+                    
+                </section>
+
+            </aside>
+    </div>
+
+</div>
+
+
+
+
+
+<script>
+    jQuery("#username").autocomplete({
+        source: function( request, response ) {
+            jQuery.ajax( {
+                type: "POST",
+                url: "/user/autocomplete",
+                data: {
+                    q: request.term
+                },
+                success: function( data ) {
+                    response(jQuery.map(data, function (item) {
+                        return {
+                            label: item.username ,
+                            value: item.username,
+                            id : item._id
+                        };
+                    }));
+                }
+            } );
+        },
+        minLength: 2,
+        select: function( event, ui ) {
+            //console.log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+        }
+    });
+    
+</script>

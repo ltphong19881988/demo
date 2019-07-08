@@ -1,0 +1,114 @@
+<div class="row">
+
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="twt-feed bg-dark">
+                <div class="corner-ribon black-ribon">
+                    <i class="fa fa-cloud-upload"></i>
+                </div>
+                <div class="media">
+                    <div class="media-body">
+                        <h3 class="text-white display-6">Withdraw</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="custom-tab">
+                    <nav>
+                        <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-item nav-link active" id="withdraw-interest-tab" data-toggle="tab"  role="tab" aria-controls="withdraw-interest" aria-selected="true">Interest Withdraw</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-item nav-link" id="withdraw-bonus-tab" data-toggle="tab"  role="tab" aria-controls="withdraw-bonus" aria-selected="false">Bonus Withdraw</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="tab-content pl-3 pt-2" id="nav-tabContent" style="border: 1px solid #dee2e6; border-top: none;">
+                        <div class="tab-pane fade show active" id="withdraw-interest" role="tabpanel" aria-labelledby="withdraw-interest-tab">
+                                <form class="" ng-submit="submitWithdraw('interest', $event)">
+                                    <div class="card-header bg-success">
+                                        <strong class="card-title text-light">Interest Balance : $<span ng-bind="interestBalance"></span> </strong> 
+                                    </div>
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label for="nf-email" class=" form-control-label">Currency Type : </label>
+                                            <select name="currencyType" class="form-control" >
+                                                <option value="">Choose Currency Type</option>
+                                                <option value="btc">Bitcoin</option>
+                                                <option value="eth">Ethereum</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Currency Price ($) : </label>
+                                            <input type="text" name="currencyPrice" disabled class="form-control FA" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Address to withdraw : </label>
+                                            <input type="text" name="address"  class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Amount : </label>
+                                            <input type="number" name="amount"  class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                        <button type="submit" class="btn btn-primary ">
+                                                <i class="fa fa-dot-circle-o"></i> Submit
+                                            </button>
+                                            <button type="reset" class="btn btn-danger ">
+                                                <i class="fa fa-ban"></i> Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                        </div>
+                        <div class="tab-pane fade" id="withdraw-bonus" role="tabpanel" aria-labelledby="withdraw-bonus-tab">
+                                <form class="" ng-submit="submitWithdraw('bonus', $event)">
+                                    <div class="card-header bg-info">
+                                            <strong class="card-title text-light">Bonus Balance : $<span ng-bind="bonusBalance"></span></strong> 
+                                    </div>
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label for="nf-email" class=" form-control-label">Currency Type : </label>
+                                            <select name="currencyType"  class="form-control">
+                                                <option value="">Choose Currency Type</option>
+                                                <option value="btc">Bitcoin</option>
+                                                <option value="eth">Ethereum</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Currency Price ($) : </label>
+                                            <input type="text" name="currencyPrice" class="form-control FA" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Address to withdraw : </label>
+                                            <input type="text" name="address"  class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Amount : </label>
+                                            <input type="number" name="amount"  class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="fa fa-dot-circle-o"></i> Submit
+                                            </button>
+                                            <button type="reset" class="btn btn-danger">
+                                                <i class="fa fa-ban"></i> Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    
+    <style>
+    .tab-pane {}
+    </style>

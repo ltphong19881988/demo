@@ -1,0 +1,236 @@
+<style>
+    #categoryContent .node ul {
+        margin-left: 20px;
+    }
+    #categoryContent .node ul li > div > div {
+        margin: 5px 0px;
+        display: inline-block;
+    }
+    #categoryContent .node ul li  div.block  {
+        border-bottom: 1px solid #444;
+        position: relative;
+        height: 45px;
+    }
+    #categoryContent .node > div > div > ul {
+        margin-left: 0px;
+    }
+    #categoryContent .node button.btn {
+        margin-left: 5px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <aside class="profile-nav alt">
+                <section class="card" id="categoryContent">
+                    <div class="card-header bg-dark">
+                        <strong class="card-title text-light">Danh sách</strong>
+                    </div>
+                    <div class="card-body text" >
+                        <div class="node" parent="" status='0'>
+
+                        </div>
+                        <!-- <div ng-if="listCate.length > 0">
+                            <ul style="list-style: none;">
+                                <li ng-repeat="cate in listCate">
+                                    <div ng-if="cate.idParent == null">
+                                        <div class="col-md-6">{{cate.name}}</div>
+                                        <div class="col-md-6">{{cate.categoryType.name}} 
+                                            <button class="btn btn-success btn-sm" idParent="{{cate._id}}" nameParent="{{cate.name}}" idtype="{{cate.categoryType._id}}"
+                                            priority="{{cate.priority}}" ng-click="prepareAdd($event)"  data-toggle="modal" data-target="#addCategoryModal" style="float:right;">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div> -->
+                    </div>
+                    
+                </section>
+
+            </aside>
+    </div>
+
+</div>
+
+
+<div id="addCategoryModal" class="example-modal modal fade">
+    <div class="modal modal-primary">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" style="position: absolute;">Enter Folder Name :</h4>
+          </div>
+          <div class="modal-body">
+                <form id="formAddCategory" class="form-horizontal" ng-submit="submitAddCategory($event)">
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Category Type : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                            <select class=" form-control" name="idCategoryType">
+                                <option  value="" >Chọn loại danh mục</option>
+                                <option ng-repeat="x in categoryType" value="{{x._id}}" >{{x.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Danh mục cha : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                            <input type="text"  name="nameParent" readonly  class="form-control" value="Không có">
+                            <input type="hidden"  name="idParent"   class="form-control" value="">
+                            <input type="hidden"  name="priority"   class="form-control" value="0">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Tên danh mục : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                            <input type="text"  name="name" placeholder="" class="form-control ">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary ">
+                            <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                    </div>
+                </form>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" ng-click="editFolder('add')" class="btn btn-success">Add Folder</button> -->
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+<div id="editCategoryModal" class="example-modal modal fade">
+    <div class="modal modal-primary">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" style="position: absolute;">Bài viết cho danh mục :</h4>
+          </div>
+          <div class="modal-body">
+                <form id="formEditCategory" class="form-horizontal" ng-submit="submitEditCategory($event)">
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Tên danh mục : </label></div>
+                        <div class="col-12 col-md-9">
+                            <input type="text" name="title" placeholder="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Cho phép đặt hàng : </label></div>
+                        <div class="col-12 col-md-9">
+                            <input type="checkbox" name="allowOrder" value="Boat"  />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Hình ảnh : </label></div>
+                        <div class="col-12 col-md-9">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#galleryModal">Chọn từ thư viện</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadModal" >Tải ảnh lên</button>
+                            <div id="productImgs">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-12"><label class=" form-control-label">Nội dung chi tiết : </label></div>
+                        <textarea name="content" id="editorContent" rows="10" cols="80" >
+                            Nội dung chi tiết
+                        </textarea>
+                        <script>
+                            CKEDITOR.replace( 'editorContent', {
+                                language: 'vi',
+                                width : '100%' , 
+                                title : 'Nội dung chi tiết',
+                                entities_latin : false,
+                                // uiColor: '#9AB8F3'
+                            } );
+                        </script>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary ">
+                            <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                    </div>
+                </form>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" ng-click="editFolder('add')" class="btn btn-success">Add Folder</button> -->
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+<div id="galleryModal" class="example-modal modal fade">
+    <div class="modal modal-primary">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" style="position: absolute;">Enter Folder Name :</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group" style="background-color : #fff;">
+                    <span class="input-group-addon">public\uploads\</span>
+                    <select class="form-control" name="folderName">
+                        <option value="">media</option>
+                    </select>
+                </div>
+                <ul id="listFiles">
+                                
+                </ul>
+            </div>
+            <div class="modal-footer">
+            <button type="button" ng-click="addImgToPost($event)" class="btn btn-primary">Chèn ảnh vào bài</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+
+<script>
+    jQuery("#username").autocomplete({
+        source: function( request, response ) {
+            jQuery.ajax( {
+                type: "POST",
+                url: "/user/autocomplete",
+                data: {
+                    q: request.term
+                },
+                success: function( data ) {
+                    response(jQuery.map(data, function (item) {
+                        return {
+                            label: item.username ,
+                            value: item.username,
+                            id : item._id
+                        };
+                    }));
+                }
+            } );
+        },
+        minLength: 2,
+        select: function( event, ui ) {
+            //console.log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+        }
+    });
+    
+</script>

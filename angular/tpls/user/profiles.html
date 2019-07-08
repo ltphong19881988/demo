@@ -1,0 +1,108 @@
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+            <aside class="profile-nav alt">
+                <form id="formUpdateProfiles" ng-submit="formUpdateProfiles($event)" >
+                        <input style="display: none;" id="avatarBase64"  type="file" />
+                        <input type="hidden" value="" name="avatar" />
+                        <section class="card">
+                               
+                            <div class="twt-feed bg-dark">
+                                <div class="corner-ribon black-ribon">
+                                        <i class="fa fa-info-circle"></i>
+                                    </div>
+                                <div class="media">
+                                    <a href="#" id="changeAvatar">
+                                        <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px; border-width: 3px; border-style: solid;" alt="" ng-src="{{userinfo.avatar}}">
+                                        <button type="button" class="btn btn-warning btn-sm"><i class="fa fa-magic"></i>&nbsp; Change</button>
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="text-light display-6" ng-bind="userinfo.username"></h3>
+                                        <p>Basic member</p>
+                                    </div>
+                                </div>
+                            </div>
+            
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <strong class="card-title"> 
+                                            Full Name 
+                                            <input style="display: none;" name="fullname" class="pull-right editProfiles" ng-model="userinfo.fullname" />
+                                            <a href="javascript:;" ng-click="editProfiles($event)">
+                                                <span style="font-size: 14px;" class="badge badge-success pull-right" ng-bind="userinfo.fullname"></span>
+                                            </a>
+                                        </strong>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <strong class="card-title"> 
+                                            Email 
+                                            <span class="pull-right" ng-bind="userinfo.email"></span>
+                                        </strong>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <strong class="card-title"> 
+                                            Phone 
+                                            <input style="display: none;" name="phone" class="pull-right editProfiles" ng-model="userinfo.phone" />
+                                            <a href="javascript:;" ng-click="editProfiles($event)">
+                                                <span style="font-size: 14px;" class="badge badge-success pull-right" ng-bind="userinfo.phone"></span>
+                                            </a>
+                                        </strong>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#"> <i class="fa fa-tasks"></i> Recent Activity <span class="badge badge-danger pull-right">0</span></a>
+                                    </li>
+                                    <li class="list-group-item">
+                                            <button type="button" class="btn btn-info pull-right" ng-click="formUpdateProfiles($event)">Update User Profiles</button>
+                                    </li>
+                                    
+                                </ul>
+                            </section>
+                </form>
+                
+            </aside>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+        <div class="card">
+            <form name="formChangePassword" ng-submit="changePassword(formChangePassword, $event)" class="form-horizontal">
+                    <div class="twt-feed bg-dark">
+                            <div class="corner-ribon black-ribon">
+                                <i class="fa fa-unlock-alt"></i>
+                            </div>
+                            <div class="media">
+                                <div class="media-body">
+                                    <h3 class="text-white display-6">Change Password</h3>
+                                </div>
+                            </div>
+                        </div>
+                <div class="card-body">
+                    
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Current Password</label></div>
+                            <div class="col-12 col-md-9">
+                                <input type="password" name="currentPassword" placeholder="Current password" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="hf-email" class=" form-control-label">New Password</label></div>
+                            <div class="col-12 col-md-9">
+                                <input type="password" name="newPassword" placeholder="New password" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Confirm New Password</label></div>
+                            <div class="col-12 col-md-9">
+                                <input type="password" name="confirmPassword" placeholder="Confirm new password" class="form-control">
+                            </div>
+                        </div>
+                    
+                </div>
+                <div class="card-footer" style="height: 60px;">
+                    <button type="submit" class="btn btn-info pull-right" >
+                        <i class="fa fa-dot-circle-o"></i> Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

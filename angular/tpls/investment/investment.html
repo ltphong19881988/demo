@@ -1,0 +1,469 @@
+<div class="row" >
+        <div class="col-sm-12 ">
+            <div class="card">
+                <div class="twt-feed bg-dark">
+                    <div class="corner-ribon black-ribon">
+                        <i class="fa fa-money"></i>
+                    </div>
+                    <div class="media">
+                        <div class="media-body">
+                            <h3 class="text-white display-6">INVEST PACKAGE</h3>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="card-body">
+                        <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Package</th>
+                                        <th>Interest</th>
+                                        <th>Start Day</th>
+                                        <th>End Day</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="(key, value) in []">
+                                        <td ><img style="height:32px; width : 32px;" ng-src="{{value.img}}" ></img> </td>
+                                        <td ng-bind="value.name"></td>
+                                        <td>0</td>
+                                        <td>
+                                            <a title="Deposit" href="#" ng-click="deposit(value.pair, $event)" data-toggle="modal" data-target="#depositModal">
+                                                <button class="btn btn-success">Deposit</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>             
+                </div>
+
+            </div>
+        </div>
+    
+    </div>
+
+<div class="pricing pricing--palden">
+        <div class="pricing__item">
+            <div class="pricing__deco">
+                <svg class="pricing__deco-img" version="1.1" id="Layer_1" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="100px" viewBox="0 0 300 100" enable-background="new 0 0 300 100" xml:space="preserve">
+                <path class="deco-layer deco-layer--1" opacity="0.6" fill="#FFFFFF" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z"></path>
+                <path class="deco-layer deco-layer--2" opacity="0.6" fill="#FFFFFF" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z"></path>
+                <path class="deco-layer deco-layer--3" opacity="0.7" fill="#FFFFFF" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+H42.401L43.415,98.342z"></path>
+                <path class="deco-layer deco-layer--4" fill="#FFFFFF" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z"></path>
+                      </svg>
+                <div class="pricing__price" style="font-size:2em;"><span class="pricing__currency"></span>Silver<span class="pricing__period"></span></div>
+                <h2 class="">($100 - $1000 USD)</h2>
+            </div>
+            <ul class="pricing__feature-list">
+                <li class="pricing__feature">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest"><h3 class="pricing__title text-bold">Direct Sponsor Bonus</h3></td>
+                            <td id="td-invest">7% F1</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest" rowspan="6" style="vertical-align:middle"><h3 class="pricing__title text-bold">Referral Bonus</h3></td>
+                        </tr>
+                        <tr id="tr-invest">
+                            <td id="td-invest">4% F2</td>
+                        </tr>
+                        <tr id="tr-invest">
+                            <td id="td-invest">3% F3</td>
+                        </tr>
+                        <tr id="tr-invest"><td id="td-invest">1% F4</td></tr>
+
+                        <tr id="tr-invest"><td id="td-invest">0.5% F5</td></tr>
+                        <tr id="tr-invest"><td id="td-invest">0.2% F6</td></tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature text-bold pricing__feature_name">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest">INTEREST</td>
+                            <td id="td-invest">0.60%/DAY</td>
+                        </tr>
+                    </tbody></table>
+
+                </li>
+                <li class="pricing__feature text-bold pricing__feature_name">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest">EXTRA BONUS</td>
+                            <td id="td-invest">0.1 - 0.15%/DAY</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature text-bold pricing__feature_name">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest">CAPITAL BACK</td>
+                            <td id="td-invest">180 DAY</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature text-bold pricing__feature_name">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest">TRADE BONUS</td>
+                            <td id="td-invest">10%</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+
+            </ul>
+            <form class="form-horizontal margin-none" style="text-align:center" ng-submit="submitInvestment(packages[0], $event)">
+                <input class="form-control" id="{{packages[0]._id}}" type="number" value="" style="width:90%;text-align: center;margin: 0 auto;" placeholder="Amount"><br>
+                <br>
+                <button  type="submit" class="pricing__action" style="padding: 5px 2.2em;cursor: pointer;"><i class="fa fa-registered"></i> Register</button>
+            </form>
+        </div>
+
+        <div class="pricing__item pricing__item--featured">
+            <div class="pricing__deco">
+                <svg class="pricing__deco-img" version="1.1" id="Layer_2" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="100px" viewBox="0 0 300 100" enable-background="new 0 0 300 100" xml:space="preserve">
+                <path class="deco-layer deco-layer--1" opacity="0.6" fill="#FFFFFF" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z"></path>
+                <path class="deco-layer deco-layer--2" opacity="0.6" fill="#FFFFFF" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z"></path>
+                <path class="deco-layer deco-layer--3" opacity="0.7" fill="#FFFFFF" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+H42.401L43.415,98.342z"></path>
+                <path class="deco-layer deco-layer--4" fill="#FFFFFF" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z"></path>
+                      </svg>
+                <div class="pricing__price" style="font-size:2em;"><span class="pricing__currency"></span>GOLD<span class="pricing__period"></span></div>
+                <h2 class="">($1010 -$5000)</h2>
+            </div>
+            <ul class="pricing__feature-list">
+                <li class="pricing__feature">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest"><h3 class="pricing__title text-bold">Direct Sponsor Bonus</h3></td>
+                            <td id="td-invest">7% F1</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest" rowspan="6" style="vertical-align:middle"><h3 class="pricing__title text-bold">Referral Bonus</h3></td>
+                        </tr>
+                        <tr id="tr-invest">
+                            <td id="td-invest">4% F2</td>
+                        </tr>
+                        <tr id="tr-invest">
+                            <td id="td-invest">3% F3</td>
+                        </tr>
+                        <tr id="tr-invest"><td id="td-invest">1% F4</td></tr>
+
+                        <tr id="tr-invest"><td id="td-invest">0.5% F5</td></tr>
+                        <tr id="tr-invest"><td id="td-invest">0.2% F6</td></tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature text-bold pricing__feature_name">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest">INTEREST</td>
+                            <td id="td-invest">0.62%/DAY</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature text-bold pricing__feature_name">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest">EXTRA BONUS</td>
+                            <td id="td-invest">0.13 - 0.2%/DAY</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature text-bold pricing__feature_name">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest">CAPITAL BACK</td>
+                            <td id="td-invest">180 DAY</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature text-bold pricing__feature_name">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest">TRADE BONUS</td>
+                            <td id="td-invest">10%</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+            </ul>
+            <form class="form-horizontal margin-none" style="text-align:center" ng-submit="submitInvestment(packages[1], $event)">
+                <input class="form-control" type="number" id="{{packages[1]._id}}" value="" style="width:90%;text-align: center;margin: 0 auto;" placeholder="Amount"><br>
+                <br>
+                <button type="submit" class="pricing__action" style="padding: 5px 2.2em;cursor: pointer;"><i class="fa fa-registered"></i> Register</button>
+            </form>
+        </div>
+
+        <div class="pricing__item">
+            <div class="pricing__deco">
+                <svg class="pricing__deco-img" version="1.1" id="Layer_3" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="100px" viewBox="0 0 300 100" enable-background="new 0 0 300 100" xml:space="preserve">
+                <path class="deco-layer deco-layer--1" opacity="0.6" fill="#FFFFFF" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z"></path>
+                <path class="deco-layer deco-layer--2" opacity="0.6" fill="#FFFFFF" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z"></path>
+                <path class="deco-layer deco-layer--3" opacity="0.7" fill="#FFFFFF" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+H42.401L43.415,98.342z"></path>
+                <path class="deco-layer deco-layer--4" fill="#FFFFFF" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z"></path>
+                      </svg>
+                <div class="pricing__price" style="font-size:2em;"><span class="pricing__currency"></span>RUBY<span class="pricing__period"></span></div>
+                <h2 class="">($5010 -$10.000)</h2>
+            </div>
+            <ul class="pricing__feature-list">
+                <li class="pricing__feature">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest"><h3 class="pricing__title text-bold">Direct Sponsor Bonus</h3></td>
+                            <td id="td-invest">7% F1</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest" rowspan="6" style="vertical-align:middle"><h3 class="pricing__title text-bold">Referral Bonus</h3></td>
+                        </tr>
+                        <tr id="tr-invest">
+                            <td id="td-invest">4% F2</td>
+                        </tr>
+                        <tr id="tr-invest">
+                            <td id="td-invest">3% F3</td>
+                        </tr>
+                        <tr id="tr-invest"><td id="td-invest">1% F4</td></tr>
+
+                        <tr id="tr-invest"><td id="td-invest">0.5% F5</td></tr>
+                        <tr id="tr-invest"><td id="td-invest">0.2% F6</td></tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature text-bold pricing__feature_name">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest">INTEREST</td>
+                            <td id="td-invest">0.64%/DAY</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature text-bold pricing__feature_name">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest">EXTRA BONUS</td>
+                            <td id="td-invest">0.15 - 0.25%/DAY</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature text-bold pricing__feature_name">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest">CAPITAL BACK</td>
+                            <td id="td-invest">180 DAY</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+                <li class="pricing__feature text-bold pricing__feature_name">
+                    <table id="tb-invest">
+                        <tbody><tr id="tr-invest">
+                            <td id="td-invest">TRADE BONUS</td>
+                            <td id="td-invest">10%</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+            </ul>
+            <form name="myForm3" class="form-horizontal margin-none" style="text-align:center" ng-submit="submitInvestment(packages[2], $event)">
+                <input class="form-control" type="number" id="{{packages[2]._id}}" value="" style="width:90%;text-align: center;margin: 0 auto;" placeholder="Amount"><br>
+                <br>
+                <button type="submit" class="pricing__action" style="padding: 5px 2.2em;cursor: pointer;"><i class="fa fa-registered"></i> Register</button>
+            </form>
+        </div>
+</div>
+
+<div class="pricing pricing--palden">
+    <div class="pricing__item" style="margin: 1em 0.5em;">
+        <div class="pricing__deco">
+            <svg class="pricing__deco-img" version="1.1" id="Layer_1" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="100px" viewBox="0 0 300 100" enable-background="new 0 0 300 100" xml:space="preserve">
+            <path class="deco-layer deco-layer--1" opacity="0.6" fill="#FFFFFF" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z"></path>
+            <path class="deco-layer deco-layer--2" opacity="0.6" fill="#FFFFFF" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z"></path>
+            <path class="deco-layer deco-layer--3" opacity="0.7" fill="#FFFFFF" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+H42.401L43.415,98.342z"></path>
+            <path class="deco-layer deco-layer--4" fill="#FFFFFF" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z"></path>
+                  </svg>
+            <div class="pricing__price" style="font-size: 2em;"><span class="pricing__currency"></span>DIAMOND<span class="pricing__period"></span></div>
+            <h2 class="">($10.050 -$30.000)</h2>
+        </div>
+        <ul class="pricing__feature-list">
+            <li class="pricing__feature">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest"><h3 class="pricing__title text-bold">Direct Sponsor Bonus</h3></td>
+                        <td id="td-invest">8% F1</td>
+                    </tr>
+                </tbody></table>
+            </li>
+            <li class="pricing__feature">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest" rowspan="6" style="vertical-align:middle"><h3 class="pricing__title text-bold">Referral Bonus</h3></td>
+                    </tr>
+                    <tr id="tr-invest">
+                        <td id="td-invest">5% F2</td>
+                    </tr>
+                    <tr id="tr-invest">
+                        <td id="td-invest">3% F3</td>
+                    </tr>
+                    <tr id="tr-invest"><td id="td-invest">1% F4</td></tr>
+
+                    <tr id="tr-invest"><td id="td-invest">0.5% F5</td></tr>
+                    <tr id="tr-invest"><td id="td-invest">0.2% F6</td></tr>
+
+                </tbody></table>
+            </li>
+            <li class="pricing__feature text-bold pricing__feature_name">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest">INTEREST</td>
+                        <td id="td-invest">0.66%/DAY</td>
+                    </tr>
+                </tbody></table>
+            </li>
+            <li class="pricing__feature text-bold pricing__feature_name">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest">EXTRA BONUS</td>
+                        <td id="td-invest">0.17 - 0.27%/DAY</td>
+                    </tr>
+                </tbody></table>
+            </li>
+            <li class="pricing__feature text-bold pricing__feature_name">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest">CAPITAL BACK</td>
+                        <td id="td-invest">180 DAY</td>
+                    </tr>
+                </tbody></table>
+            </li>
+            <li class="pricing__feature text-bold pricing__feature_name">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest">TRADE BONUS</td>
+                        <td id="td-invest">15%</td>
+                    </tr>
+                </tbody></table>
+
+            </li>
+        </ul>
+        <form class="form-horizontal margin-none" style="text-align:center" ng-submit="submitInvestment(packages[3], $event)">
+            <input class="form-control" type="number" id="{{packages[3]._id}}" value="" style="width:90%;text-align: center;margin: 0 auto;" placeholder="Amount"><br>
+            <br>
+            <button type="submit" class="pricing__action" style="padding: 5px 2.2em;cursor: pointer;"><i class="fa fa-registered"></i> Register</button>
+        </form>
+    </div>
+    
+    <div class="pricing__item" style="margin: 1em 0.5em;">
+        <div class="pricing__deco">
+            <svg class="pricing__deco-img" version="1.1" id="Layer_3" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="100px" viewBox="0 0 300 100" enable-background="new 0 0 300 100" xml:space="preserve">
+            <path class="deco-layer deco-layer--1" opacity="0.6" fill="#FFFFFF" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z"></path>
+            <path class="deco-layer deco-layer--2" opacity="0.6" fill="#FFFFFF" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z"></path>
+            <path class="deco-layer deco-layer--3" opacity="0.7" fill="#FFFFFF" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+H42.401L43.415,98.342z"></path>
+            <path class="deco-layer deco-layer--4" fill="#FFFFFF" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z"></path>
+                  </svg>
+            <div class="pricing__price" style="font-size: 2em;"><span class="pricing__currency"></span>BLUE DIAMOND<span class="pricing__period"></span></div>
+            <h2 class="">($30.100 - $50.000)</h2>
+        </div>
+        <ul class="pricing__feature-list">
+            <li class="pricing__feature">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest"><h3 class="pricing__title text-bold">Direct Sponsor Bonus</h3></td>
+                        <td id="td-invest">8% F1</td>
+                    </tr>
+                </tbody></table>
+            </li>
+            <li class="pricing__feature">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest" rowspan="6" style="vertical-align:middle"><h3 class="pricing__title text-bold">Referral Bonus</h3></td>
+                    </tr>
+                    <tr id="tr-invest">
+                        <td id="td-invest">5% F2</td>
+                    </tr>
+                    <tr id="tr-invest">
+                        <td id="td-invest">3% F3</td>
+                    </tr>
+                    <tr id="tr-invest"><td id="td-invest">1% F4</td></tr>
+
+                    <tr id="tr-invest"><td id="td-invest">0.5% F5</td></tr>
+                    <tr id="tr-invest"><td id="td-invest">0.2% F6</td></tr>
+
+                </tbody></table>
+            </li>
+            <li class="pricing__feature text-bold pricing__feature_name">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest">INTEREST</td>
+                        <td id="td-invest">0.68%/DAY</td>
+                    </tr>
+                </tbody></table>
+            </li>
+            <li class="pricing__feature text-bold pricing__feature_name">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest">EXTRA BONUS</td>
+                        <td id="td-invest">0.19 - 0.29%/DAY</td>
+                    </tr>
+                </tbody></table>
+            </li>
+            <li class="pricing__feature text-bold pricing__feature_name">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest">CAPITAL BACK</td>
+                        <td id="td-invest">180 DAY</td>
+                    </tr>
+                </tbody></table>
+            </li>
+            <li class="pricing__feature text-bold pricing__feature_name">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest">TRADE BONUS</td>
+                        <td id="td-invest">15%</td>
+                    </tr>
+                </tbody></table>
+            </li>
+        </ul>
+        <form class="form-horizontal margin-none" style="text-align:center" ng-submit="submitInvestment(packages[4], $event)">
+            <input class="form-control" type="number" id="{{packages[4]._id}}" value="" style="width:90%;text-align: center;margin: 0 auto;" placeholder="Amount"><br>
+            <br>
+            <button type="submit" class="pricing__action" style="padding: 5px 2.2em;cursor: pointer;"><i class="fa fa-registered"></i> Register</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    h2 {
+        font-size: 32px !important;
+        line-height: 35px !important;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0px;
+        font-weight: bold;
+        color: #fff !important;
+    }
+</style>

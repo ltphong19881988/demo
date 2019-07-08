@@ -1,0 +1,146 @@
+
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <aside class="profile-nav alt">
+                <section class="card">
+                    <div class="card-header bg-dark">
+                        <strong class="card-title text-light">Tất cả video</strong>
+                        <button style="float:right;" class="right btn btn-sm btn-success" data-toggle="modal" data-target="#addVideoModal">
+                            <i title="Add new product" class="fa fa-plus"></i> Thêm mới Video
+                        </button>
+                    </div>
+
+                    <div class="card-body">
+                        <div id="listProducts">
+                            <div class="table-responsive">
+                                <table datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="row-border hover"></table>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+            </aside>
+    </div>
+
+</div>
+
+
+
+<div id="addVideoModal" class="example-modal modal fade">
+    <div class="modal modal-primary">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" style="position: absolute;">Thêm mới video :</h4>
+          </div>
+          <div class="modal-body">
+                <form id="formAddVideo" class="form-horizontal" ng-submit="submitAddVideo($event)">
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Tên video : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                            <input type="text" ng-model="form.videoTitle" class="form-control" value="">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">URL Video : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                            <input type="text" ng-model="form.videoUrl" placeholder="" class="form-control ">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary ">
+                            <i class="fa fa-dot-circle-o"></i> THêm video
+                        </button>
+                    </div>
+                </form>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" ng-click="editFolder('add')" class="btn btn-success">Add Folder</button> -->
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+
+<div id="editVideotModal" class="example-modal modal fade">
+    <div class="modal modal-primary">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" style="position: absolute;">Chỉnh sửa video :</h4>
+          </div>
+          <div class="modal-body">
+                <form id="formEditVideo" class="form-horizontal" ng-submit="submitEditVideo($event)">
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Tên video : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                            <input type="text" ng-model="formEdit.videoTitle" class="form-control" value="">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">URL Video : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                            <input type="text" ng-model="formEdit.videoUrl" placeholder="" class="form-control ">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary ">
+                            <i class="fa fa-dot-circle-o"></i> Chỉnh sửa
+                        </button>
+                    </div>
+                </form>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" ng-click="editFolder('add')" class="btn btn-success">Add Folder</button> -->
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+
+
+
+
+<script>
+    jQuery("#username").autocomplete({
+        source: function( request, response ) {
+            jQuery.ajax( {
+                type: "POST",
+                url: "/user/autocomplete",
+                data: {
+                    q: request.term
+                },
+                success: function( data ) {
+                    response(jQuery.map(data, function (item) {
+                        return {
+                            label: item.username ,
+                            value: item.username,
+                            id : item._id
+                        };
+                    }));
+                }
+            } );
+        },
+        minLength: 2,
+        select: function( event, ui ) {
+            //console.log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+        }
+    });
+    
+</script>

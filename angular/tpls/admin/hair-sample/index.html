@@ -1,0 +1,71 @@
+
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <aside class="profile-nav alt">
+                <section class="card">
+                    <div class="card-header bg-dark">
+                        <strong class="card-title text-light">Tất cả mẫu tóc</strong>
+                        <button style="float:right;" class="right btn btn-sm btn-success" >
+                            <a title="Add new hair sample" href="/admin/hair-sample/-/add" style="color : #fff;" >
+                                <i title="Add new hair sample" class="fa fa-plus"></i> Thêm mới mẫu tóc
+                            </a>
+                            
+                        </button>
+                    </div>
+
+                    <div class="card-body">
+                        <div id="">
+                            <div class="table-responsive">
+                                <table datatable="" dt-options="dtOptionsHair" dt-columns="dtColumnsHair" class="row-border hover"></table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="card-footer">
+                        <button type="submit" class="btn btn-primary ">
+                            <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                        <button type="reset" class="btn btn-danger ">
+                            <i class="fa fa-ban"></i> Cancel
+                        </button>
+                    </div> -->
+                </section>
+
+            </aside>
+    </div>
+
+</div>
+
+
+
+
+
+
+<script>
+    jQuery("#username").autocomplete({
+        source: function( request, response ) {
+            jQuery.ajax( {
+                type: "POST",
+                url: "/user/autocomplete",
+                data: {
+                    q: request.term
+                },
+                success: function( data ) {
+                    response(jQuery.map(data, function (item) {
+                        return {
+                            label: item.username ,
+                            value: item.username,
+                            id : item._id
+                        };
+                    }));
+                }
+            } );
+        },
+        minLength: 2,
+        select: function( event, ui ) {
+            //console.log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+        }
+    });
+    
+</script>

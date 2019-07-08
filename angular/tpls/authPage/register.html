@@ -1,0 +1,132 @@
+<div class="col-md-12 col-lg-12  content-1">
+    <div class="panel panel-default data_background element-box-shadow register-v2" data-background="/img/background_register.png" style="background-image: url(&quot;/img/background_register.png&quot;);">
+        <div class="panel-heading text-left padding_30"><img style="width: 345px;" src="/img/logo_login.png" class="img-responsive" alt="Logo">
+            <div style="width: 100%;display:inline-flex;">
+            <hr style="width:20%"> 
+                <p class="register_form" style="color: #fff;font-weight: 500;font-size: 21px;text-align:center;width:50%;padding-top:5px;"> Register Form</p>
+                <hr style="width:20%">
+            </div>
+        </div>
+    <form id="formRegister" ng-submit="submitRegister($event)" method="POST" role="form">                            
+        <div hidden="">
+            <label class="col-xs-2 col-lg-3 control-label">Upline</label>
+
+            <input value="{{sponsor}}" name="sponsor" type="hidden" />
+        </div>
+        <div class="validation-summary-valid text-danger" data-valmsg-summary="true">
+            <ul><li style="display:none"></li>
+            </ul>
+        </div>                            
+        <div class="panel-body" id="stepper-page">
+                <div class="stepper stepper-register">
+                    <!-- Tab list ( 1 - 2 - 3 )-->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a class="persistant-disabled" href="javascript:;" data-toggle="tab" aria-controls="stepper-reg-1" role="tab" title="" data-original-title="Step 1">
+                                <span class="round-tab">1</span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a class="persistant-disabled" href="javascript:;" data-toggle="tab" aria-controls="stepper-reg-2" role="tab" title="" data-original-title="Step 2">
+                                <span class="round-tab">2</span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a class="persistant-disabled" href="javascript:;" data-toggle="tab" aria-controls="stepper-reg-3" role="tab" title="" data-original-title="Complete">
+                                <span class="round-tab">3</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Content-->
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" role="tabpanel" id="stepper-reg-1">
+                                <div class="row">
+                                    <p id="sponsorLabel" style="color: #fff;font-weight: 500;font-size: 21px;text-align:center; display: none;">Sponsor: <b ng-bind="sponsor"></b></p>
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="DisplayName" data-valmsg-replace="true" style="text-align:center;"></span>
+                                    <div class="col-md-12">
+                                        <label class="text-bold text-white"><b>Full Name</b><b style="color:red;">*</b></label><br>
+                                        <input class="" name="fullname" placeholder="Display Name" type="text" value="">
+                                    </div>
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="Note2" data-valmsg-replace="true" style="text-align:center;"></span>
+                                    <div class="col-md-12">
+                                        <label class="text-bold text-white"><b>User Name</b><b style="color:red;">*</b></label><br>
+                                        <input class="" name="username" placeholder="User Name" type="text" value="">
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <ul class="list-inline">
+                                            <li>
+                                                <a class="btn btn-cryptic next-step text-bold">Next Step</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" role="tabpanel" id="stepper-reg-2">
+                                <div class="row">
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true" style="text-align:center;"></span>
+                                    <div class="col-md-12">
+                                        <label class="text-bold text-white"><b>Email</b><b style="color:red;">*</b></label><br>
+                                        <input class=""  placeholder="Email" name="email" type="email" value="">
+                                    </div>
+                                    
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="CountryName" data-valmsg-replace="true" style="text-align:center;"></span>
+                                    <div class="col-md-12" style="margin-bottom:10px;">
+                                        <label class="text-bold text-white"><b>Country</b><b style="color:red;">*</b></label><br>
+                                        <select class="form-control" ng-model="country" name="country" style="color:#000">
+                                            <option style="color:#000000">Country</option>
+                                            <option ng-repeat="item in countries" value="{{item._id}}">{{item.name}}</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <ul class="list-inline">
+                                            <li class="col-md-6 col-xs-6">
+                                                <a class="btn btn-info prev-step text-bold">Back</a>
+                                            </li>
+                                            <li class="col-md-6 col-xs-6">
+                                                <a class="btn btn-cryptic next-step text-bold">Next Step</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" role="tabpanel" id="stepper-reg-3">
+                                <div class="row">
+
+                                </div>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="NewPassword" data-valmsg-replace="true" style="text-align:center;"></span>
+                                <label class="text-bold text-white"><b>Password</b><b style="color:red;">*</b></label>
+                                <input class=""  id="NewPassword" name="password" placeholder="Password" type="password">
+
+                                <span class="field-validation-valid text-danger" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true" style="text-align:center;"></span>
+                                <label class="text-bold text-white"><b>Confirm Password</b><b style="color:red;">*</b></label>
+                                <input class="" name="confirmPassword" placeholder="Confirm your password" type="password">
+
+                                <div class="form-group has-feedback">
+                                        <div class="g-recaptcha" data-sitekey="6LfXNjsUAAAAAOPfroYZRzkZTlhKhjTxMQWC3ykd"></div>
+                                </div>
+
+                                <div class="spacer_15"></div>
+                                <div class="col-md-12">
+                                    <ul class="list-inline">
+                                        <li class="col-md-6 col-xs-6">
+                                            <a class="btn btn-info prev-step text-bold">Back</a>
+                                        </li>
+                                        <li class="col-md-6 col-xs-6">
+                                                <a class="btn btn-register btn-cryptic register-step text-bold" ng-click="submitRegister($event)" >
+                                                        Register
+                                                </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="row" ng-controller="dashboardCtrl">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <strong class="card-title text-light">Referral Link</strong>
+                <button style="float: right; border-radius: 5px; " class="btn btn-success copyButton" copyTarget="referralLink" >Copy</button>
+            </div>
+            <div class="card-body text-white bg-danger">
+                <span id="referralLink" class="card-text text-light" ng-bind="referralLink"></span>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <strong class="card-title text-light">Current Rate</strong>
+            </div>
+            <div class="card-body">
+                <div class="col-sm-12 col-md-4">
+                    <div class="current_rate_child">
+                        1BTC = <span id="tblPopulation">$
+                    4197.24916438</span></div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="current_rate_child">
+                        1ETH = <span id="tblPopulation2">$
+                    117.785825316</span></div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="current_rate_child border_none">
+                        1ACM= $0.3
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-4">
+            <section class="card">
+                    <div class="twt-feed blue-bg">
+                        <div class="corner-ribon black-ribon">
+                            <i class="fa fa-twitter"></i>
+                        </div>
+                        <div class="fa fa-twitter wtt-mark"></div>
+        
+                        <div class="media">
+                            <a href="#">
+                                                <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/admin.jpg">
+                                            </a>
+                            <div class="media-body">
+                                <h2 class="text-white display-6">Jim Doe</h2>
+                                <p class="text-light">Project Manager</p>
+                            </div>
+                        </div>
+        
+        
+        
+                    </div>
+
+                    <div class="twt-write col-sm-12">
+                        <textarea placeholder="Write your Tweet and Enter" rows="1" class="form-control t-text-area"></textarea>
+                    </div>
+                    <footer class="twt-footer">
+                        <a href="#"><i class="fa fa-camera"></i></a>
+                        <a href="#"><i class="fa fa-map-marker"></i></a>
+                        New Castle, UK
+                        <span class="pull-right">
+                                            32
+                                        </span>
+                    </footer>
+                </section>
+
+    </div>
+
+
+
+
+
+</div>

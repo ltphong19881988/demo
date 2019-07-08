@@ -1,0 +1,162 @@
+
+<html ng-app="adminApp" >
+    <head> 
+        <title > <%= title %> </title>
+        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon"> 
+        <link rel="icon" href="/img/favicon.gif" type="image/gif"> 
+        <meta charset="utf-8"> 
+        <meta name="format-detection" content="telephone=no"> 
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">  
+        
+         <!-- Datatable Core CSS -->
+         <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
+
+        <!-- Bootstrap Core CSS -->
+        <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Theme CSS -->
+        <link href="/css/backend.css" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/css/popup.css" >
+
+        <!-- Custom Fonts -->
+        <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+        
+        
+    </head>
+
+    <body class="nav-md">
+        <div class="popup" data-popup="popup-1">
+            <div class="popup-inner">
+                <h2>Wow! This is Awesome! (Popup #1)</h2>
+                <p>Donec in volutpat nisi . Ut ac risus eget eros imperdiet posuere nec eu lectus.</p>
+                <p><a data-popup-close="popup-1" href="#">Close</a></p>
+                <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+            </div>
+        </div>
+
+        <div class="container body" ng-controller="profileCtrl">
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" style="border: 0;">
+                            <a href="/" class="site_title">
+                                <img class="small" src="/img/lg.png" />
+                                <img class="large" src="/img/logo.png" />
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- menu profile quick info -->
+                        <div class="profile clearfix">
+                            <div class="profile_pic">
+                                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                            </div>
+                            <div class="profile_info">
+                                <span>Xin chào,</span>
+                                    <h2 ng-bind="info.username"></h2>
+                                
+                            </div>
+                        </div>
+                        <!-- /menu profile quick info -->
+                        <br />
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <h3>MENU</h3>
+                                <ul class="nav side-menu">
+                                    <li><a href="/dashboard"><i class="fa fa-tachometer"></i> Trang chủ</a></li>
+
+                                    <!-- <li>
+                                        <a href="/ico">
+                                            <i class="fa fa-database"></i> ICO
+                                        </a>
+                                    </li> -->
+
+                                    <li>
+                                        <a href="/exchange"><i class="fa fa-exchange"></i> Sàn giao dịch </a>
+                                    </li>
+                                    <li>
+                                        <a href="/lending"><i class="fa fa-bank"></i>Lending </a>
+                                    </li>
+                                    <li>
+                                        <a href="/wallet"><i class="fa fa-credit-card"></i> Ví điện tử </a>
+                                    </li>
+                                    <li>
+                                        <a href="/transaction"><i class="fa fa-send"></i> Giao dịch </a>
+                                    </li>
+                                    <li>
+                                        <a href="/downline"><i class="fa fa-users"></i> Tuyến dưới </a>
+                                    </li>
+                                    <li>
+                                        <a><i class="fa fa-cogs"></i> Tùy chọn <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="/user/index">Thông tin cá nhân</a></li>
+                                            <li><a href="/setting">Bảo mật</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="/user/logout">
+                                            <i class="fa fa-sign-out"></i> Đăng xuất
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+    
+                        </div>
+                        <!-- /sidebar menu -->
+                    </div>
+                </div>
+                <!-- top navigation -->
+                <div class="top_nav">
+                    <div class="nav_menu">
+                        <nav>
+                            <div class="nav toggle">
+                                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                            </div>
+                            <ul class="nav navbar-nav navbar-right">
+
+                                <li class="price-mn">
+                                    <b>1 VNC </b> <br/>
+                                    <b id="uch--price" ng-bind="vncoins.price_usd">3.8</b> <span> USD</span>
+                                </li>
+                                <li class="price-mn">
+                                    <b>1 ETH = </b><br/>
+                                    <b id="eth-price" ng-bind="ethereum.price_usd">...</b><span> USD</span>
+                                </li>
+                                <li class="price-mn">
+                                    <b>1 BTC = </b><br/>
+                                    <b id="btc-price" ng-bind="bitcoin.price_usd">...</b><span> USD</span>
+                                </li>
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- /top navigation -->
+
+                <div class="right_col" role="main">
+                    <div class="" >
+                        <header id="topbar" class="ph10" style="padding-top: 10px !important; ; padding-bottom: 10px !important;">
+                            <span>
+                                <div class="admin-form form-group mb10" style="margin-right: 5px !important;">
+                                    <span style="color: #0b0e16; font-size: 13px"><b>Earn by referring new members</b> <a target="_blank" href="#">learn more.</a></span><br>
+                                    <label class="field prepend-icon" style="width: auto">
+                                        <input id="copyTarget" class="gui-input gui-input-ref" type="text" ng-model="referalLink" style="min-width: 360px" readonly="">
+                                        <a id="copyButton" class="field-icon field-icon-ref" title="Copy your referral link" style="display: inline-block !important;">
+                                            <i class="fa fa-link copy-link-ref" style="font-size: 13px !important;"> Copy</i>
+                                        </a>
+                                        <span id="link-copied-message" class="link-copied-message"> Link copied</span>
+                                    </label>
+                                </div>
+                            </span>
+                        </header>
+                        <div class="clearfix"></div>
+    
+                    </div>
+
+
+                

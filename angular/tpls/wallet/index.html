@@ -1,0 +1,210 @@
+<div class="row">
+    <div class="col-sm-12">
+        <section class="card">
+            <div class="twt-feed bg-dark">
+                <div class="corner-ribon black-ribon">
+                    <i class="fa fa-cloud-download"></i>
+                </div>
+                <div class="media col-md-8 col-sm-12">
+                    <div class="media-body ">
+                        <h4 class="display-6 float-left">USD Wallet : $<span ng-bind="usdBalance"></span></h4>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4" style="padding-right: 40px;">
+                        <button class="btn btn-success float-right" ng-click="transfer(value.pair, $event)" data-toggle="modal" data-target="#transferModal" >
+                            <i class="fa fa-send"> Send</i>
+                        </button>
+                    </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <aside class="profile-nav alt">
+                <section class="card">
+                    <div class="twt-feed bg-dark">
+                        <div class="corner-ribon black-ribon">  <i class="fa fa-bitcoin"></i> </div>
+                        <h3 class="card-title text-light">List Currencies</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Logo</th>
+                                    <th>Name</th>
+                                    <th>Total Deposit</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="(key, value) in listCurrencies">
+                                    <td ><img style="height:32px; width : 32px;" ng-src="{{value.img}}" ></img> </td>
+                                    <td ng-bind="value.name"></td>
+                                    <td>0</td>
+                                    <td>
+                                        <a title="Deposit" href="#" ng-click="deposit(value.pair, $event)" data-toggle="modal" data-target="#depositModal">
+                                            <button class="btn btn-success">Deposit</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </section>
+
+
+                <div class="modal fade" id="depositModal" tabindex="-1" role="dialog" aria-labelledby="depositModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="depositModalLabel">Deposit <span ng-bind="selectedpair"></span> Wallet</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <b ng-bind="selectedpair"></b> <b>Address : </b> <b ng-bind="selectedpairAddress"></b> 
+                                <br/><br/>
+                                <div id="depositQrCode"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="transferModal" tabindex="-1" role="dialog" aria-labelledby="transferModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="transferModalLabel">Transfer </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="formTransfer" ng-submit="submitTranser($event)" class="form-horizontal">
+                                    <div class="alert"></div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label class=" form-control-label">Username:</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="text" name="username" placeholder="Enter username..." class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label class=" form-control-label">Amount: </label></div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="number" name="amount" placeholder="Enter amount..." class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group 2fa" style="display: none;">
+                                        <div class="col col-md-3"><label class=" form-control-label">2FA Token: </label></div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="text" name="authToken" placeholder="2FA token..." class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group col-sm-12">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                        
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <aside class="profile-nav alt">
+                <section class="card">
+                    <div class="twt-feed bg-dark">
+                        <div class="corner-ribon black-ribon">  <i class="fa fa-list"></i> </div>
+                        <h3 class="card-title text-light">Histories</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" ng-repeat="trans in histories">
+                                <span ng-if="trans.source == 'plus'" class="badge badge-success pull-right" ng-bind="'+' + trans.amount"></span>
+                                <span ng-if="trans.source == 'minus'" class="badge badge-danger pull-right" ng-bind="trans.amount"></span>
+                                <span ng-bind="trans.datecreate"></span>
+                                <span ng-bind="trans.description"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </section>
+
+            </aside>
+    </div>
+
+</div>
+
+
+
+<style>
+.badge{
+    font-size: 13px;
+}
+@media (max-width: 575.99px){
+    .media-body { margin: 15px 0px 0px 0px;}
+}
+</style>
+<script>
+    // var replaceIcon = function(){
+    //     jQuery(".badge-success").html("<i class=\"fa fa-download\"></i>");
+    //     jQuery(".badge-danger").html("<i class=\"fa fa-upload\"></i>");
+    //     jQuery(".badge-warning").html("<i class=\"fa fa-send\"></i>");
+    // }
+    // if(jQuery(window).width() <= 700){
+    //     replaceIcon();
+    // }
+    // jQuery( window ).resize(function() {
+    //     if(jQuery(window).width() <= 700){
+    //         replaceIcon();
+    //     }else{
+    //         jQuery(".badge-success").html("Deposit");
+    //         jQuery(".badge-danger").html("Withdraw");
+    //         jQuery(".badge-warning").html("Send");
+    //     }
+    // });
+
+    jQuery("input[name='username']").autocomplete({
+        source: function( request, response ) {
+            jQuery.ajax( {
+                type: "POST",
+                url: "/user/autocomplete",
+                data: {
+                    q: request.term
+                },
+                success: function( data ) {
+                    response(jQuery.map(data, function (item) {
+                        return {
+                            label: item.username ,
+                            value: item.username,
+                            id : item._id
+                        };
+                    }));
+                }
+            } );
+        },
+        minLength: 2,
+        select: function( event, ui ) {
+            //console.log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+        }
+    });
+    
+</script>

@@ -1,0 +1,248 @@
+<style>
+    
+    .modal .modal-dialog .modal-content {
+        min-height: 500px;
+    }
+    #uploadProcess ul li {
+        list-style: none;
+        margin-right: 15px; 
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+    #uploadProcess img {
+        max-height: 80px;
+    }
+    #uploadProcess button.btn-danger{float: right;}
+    #uploadProcess button.btn-success{float: right; margin-right: 20px; margin-bottom: 10px;}
+    
+    
+    #formAddProduct div.node{
+        border: 1px solid #e1e1e1;
+        max-height: 300px;
+        overflow: scroll;
+    }
+    #formAddProduct .node ul {
+        margin-left: 20px;
+    }
+    #formAddProduct .node ul li > div > div {
+        margin: 5px 0px;
+        display: inline-block;
+    }
+    #formAddProduct .node ul li  div.block  {
+        border-bottom: 1px solid #e1e1e1;
+        position: relative;
+        height: 40px;
+    }
+    #formAddProduct .node > div > div > ul {
+        margin-left: 0px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <aside class="profile-nav alt">
+                <section class="card">
+                    <div class="card-header bg-dark">
+                        <strong class="card-title text-light">Thêm mới mẫu tóc</strong>
+                    </div>
+                    <form id="formAddProduct" class="form-horizontal" ng-submit="submitProduct($event)">
+                        <div class="card-body">
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Tên mẫu tóc : </label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" name="title" placeholder="" class="form-control" ng-model="productItem.postContent.title">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Danh mục : </label></div>
+                                <div class="col-12 col-md-9">
+                                    <select type="text" id="productCategory" name="idCategory" class="form-control" readonly>
+                                        <option  value="5d1ef3b1e3039d1146fac322"> Mẫu tóc đẹp</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Hình ảnh : </label></div>
+                                <div class="col-12 col-md-9">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#galleryModal">Chọn từ thư viện</button>
+                                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#copyLinkModal" >Copy link</button> -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadModal" >Tải ảnh lên</button>
+                                    <div id="productImgs">
+                                        <div ng-if="productItem.pictures" ng-repeat="src in productItem.pictures" class="divImg">
+                                            <img src="{{src}}">
+                                            <i class="fa fa-close"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                    <div class="col col-md-12"><label class=" form-control-label">Mô tả ngắn : </label></div>
+                                    <textarea name="descriptions" id="editorDescription" rows="4" cols="80" >
+                                        Mô tả ngắn
+                                    </textarea>
+                                    <script>
+                                        CKEDITOR.replace( 'editorDescription', {
+                                            language: 'vi',
+                                            width : '90%' , 
+                                            title : 'Mô tả ngắn',
+                                            entities_latin : false,
+                                            height : '8em',
+                                            // uiColor: '#9AB8F3'
+                                        } );
+                                    </script>
+                                </div>
+                            <div class="row form-group">
+                                <div class="col col-md-12"><label class=" form-control-label">Nội dung chi tiết : </label></div>
+                                <textarea name="content" id="editorContent" rows="10" cols="80" >
+                                    Nội dung chi tiết
+                                </textarea>
+                                <script>
+                                    CKEDITOR.replace( 'editorContent', {
+                                        language: 'vi',
+                                        width : '100%' , 
+                                        title : 'Nội dung chi tiết',
+                                        entities_latin : false,
+                                        height : '30em',
+                                        // uiColor: '#9AB8F3'
+                                    } );
+                                </script>
+                            </div>
+                            
+                        </div>
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary ">
+                                <i class="fa fa-dot-circle-o"></i> Submit
+                            </button>
+                            <button type="reset" class="btn btn-danger ">
+                                <i class="fa fa-ban"></i> Cancel
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+            </aside>
+    </div>
+
+</div>
+
+
+<div id="galleryModal" class="example-modal modal fade">
+    <div class="modal modal-primary">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" style="position: absolute;">Enter Folder Name :</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group" style="background-color : #fff;">
+                    <span class="input-group-addon">public\uploads\</span>
+                    <select class="form-control" name="folderName">
+                        <option value="">media</option>
+                    </select>
+                </div>
+                <ul id="listFiles">
+                                
+                </ul>
+            </div>
+            <div class="modal-footer">
+            <button type="button" ng-click="addImgToPost($event)" class="btn btn-primary ">Chèn ảnh vào bài</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+<div id="copyLinkModal" class="example-modal modal fade">
+    <div class="modal modal-primary">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" style="position: absolute;">Enter Folder Name :</h4>
+            </div>
+            <div class="modal-body">
+            <div class="input-group" style="background-color : #fff;">
+                <span class="input-group-addon">{{acviteFolderPath}}</span>
+                <input type="text" class="form-control" name="folderName" placeholder="" style="background: #fff;">
+            </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" ng-click="addFolder($event)" class="btn btn-success ">Add Folder</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+<div id="uploadModal" class="example-modal modal fade">
+    <div class="modal modal-primary">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" style="position: absolute;">Tải ảnh lên :</h4>
+            </div>
+            <div class="modal-body">
+                <div id="prepareBtn">
+                    <button class="btn btn-primary btnUpload" ><i class="fa fa-search"></i>Chọn ảnh</button>
+                    <input id="uploadBtn" type="file" hidden multiple />
+                </div>
+                
+                <div id="uploadProcess" style="display: none;">
+                    <form enctype="multipart/form-data">
+                        <ul>
+
+                        </ul>
+                        <div class="form-group" style="height: 40px;">
+                            <button ng-click=doUpload($event) class="btn btn-success">Tải lên</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+
+<script>
+    jQuery("#username").autocomplete({
+        source: function( request, response ) {
+            jQuery.ajax( {
+                type: "POST",
+                url: "/user/autocomplete",
+                data: {
+                    q: request.term
+                },
+                success: function( data ) {
+                    response(jQuery.map(data, function (item) {
+                        return {
+                            label: item.username ,
+                            value: item.username,
+                            id : item._id
+                        };
+                    }));
+                }
+            } );
+        },
+        minLength: 2,
+        select: function( event, ui ) {
+            //console.log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+        }
+    });
+    
+</script>

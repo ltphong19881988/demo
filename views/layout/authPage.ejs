@@ -1,0 +1,67 @@
+<html lang="en" ng-app="authPage">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="Bootstrap Website Templates">
+        <title ng-bind="pageTitle"></title>
+        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+
+        <!-- Bootstrap Core CSS -->
+        <link href="/css/authpage/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <!-- Plugin CSS -->
+        <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet" type="text/css">  
+        <!-- Theme CSS -->
+        
+        <!-- Custom Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700,900" rel="stylesheet">     
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,700,900" rel="stylesheet">   
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,700,900" rel="stylesheet">   
+          
+        <!--css customn login-->
+        <!-- CSS -->
+        <!-- Bootstrap -->
+        <!-- <link href="/Content/login/bootstrap.min.css" rel="stylesheet">
+        <link href="/Content/login/jquery.dataTables.min.css" rel="stylesheet"> -->
+        <!-- Simple line icons -->
+        <!-- <link href="/Content/login/simple-line-icons.css" rel="stylesheet"> -->
+        <!-- <link href="/Content/login/cryptocoins.css" rel="stylesheet"> -->
+
+        <!-- Custom Style -->
+        <link href="/css/authpage/custom.css" rel="stylesheet" type="text/css">
+        <link href="/css/authpage/media.css" rel="stylesheet" type="text/css">
+        <link id="ui-current-skin" href="/css/authpage/skin-yellow.css" rel="stylesheet">
+        <!-- Custom Font -->
+        <link rel="stylesheet" type="text/css" media="all" href="/css/authpage/authPage.css">
+
+        <!-- <link href="/Content/login/skin-switcher.css" rel="stylesheet"> -->
+        <!--end css custom login-->
+
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <script src="/vendor/jquery/jquery.min.js"></script>
+        <script src="/main/js/angular.min.js"></script>
+        <script src="/main/js/angular-route.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.20/angular-ui-router.js" ></script>
+        <script src="/main/js/acmApp.js"></script>
+        <script src="/main/js/acmController.js"></script>
+        <script src="/main/js/acmLib.js"></script>
+        
+    </head>
+    <body id="page-top">
+            <input id="requestSending" type="hidden" value="off" />
+        <div class="right_col right_col_exchange" role="main" style="min-height: 554px;">
+            <div class="pannel-landing-page data_background" data-background="/background_login.png" style="background-image: url(&quot;/img/background_login.png&quot;);">
+                <div class="container">
+                    <div class="row">
+                        <ng-view></ng-view>
+                    </div>
+                </div>
+            </div>
+                
+        </div>
+            
+    </body>
+</html>

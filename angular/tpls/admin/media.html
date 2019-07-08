@@ -1,0 +1,145 @@
+<style>
+    #treeFolder {
+        width: 88%;
+    }
+    #treeFolder .fa-plus{
+        color: green;
+        margin-top: 6px;
+        position: absolute;
+        right: -13px;
+        font-size: 12px;
+    }
+    #treeFolder .fa-close{
+        color: red;
+        margin-top: 3px;
+        position: absolute;
+        right: -28px;
+    }
+    #treeFolder .fa-edit{
+        color: blue;
+        margin-top: 6px;
+        position: absolute;
+        right: -13px;
+        font-size: 12px;
+    }
+   
+    ul#listFiles li {
+        display:inline;
+        margin-right: 15px; 
+        overflow: hidden;
+        float: left;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    ul#listFiles li p {
+        width: 100%;
+        text-align: center;
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+    #uploadProcess img {
+        max-height: 80px;
+    }
+    #uploadProcess button.btn-danger{float: right;}
+    #uploadProcess button.btn-success{float: right; margin-right: 20px; margin-bottom: 10px;}
+  </style>
+
+<div class="row content" >
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <strong class="card-title text-light">Media</strong>
+                
+            </div>
+            <div class="card-body " style="min-height: 500px; position: relative; padding: 0px;">
+                <div id="uploadProcess" style="display: none;">
+                    <form enctype="multipart/form-data">
+                        <ul>
+
+                        </ul>
+                        <div class="form-group" style="height: 40px;">
+                            <button ng-click="closeUpload($event)" class="btn btn-danger">Đóng</button>
+                            <button ng-click=doUpload($event) class="btn btn-success">Tải lên</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-4 card" style="padding: 0px; height: 100%;">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <strong style="float:left;" class="card-title text-light">{{acviteFolder}}</strong>
+                            <!-- <button style="float:right;" class="right btn btn-sm btn-success uploadButton"  data-toggle="modal" data-target="#addFolderModal">
+                                <i title="New Folder" class="fa fa-plus"></i> 
+                            </button> -->
+                        </div>
+                        <div class="card-body">
+                            <div class="tree" id="treeFolder">
+                                <ul>
+                                  <!--root-->
+                                  <li >
+                                        <i class="fa fa-plus" ng-click="preAddFolder($event)" path="public/uploads/media/" data-toggle="modal" data-target="#addFolderModal" ></i>
+                                      <div id="startRoot" class="nono" ng-click="setActiveFolder($event)" path="public/uploads/media/">
+                                            <i class="fa fa-folder-open-o"></i><a class="node"> Media</a>
+                                      </div>
+                                  </li>
+                                </ul>
+                              </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="col-md-8 card" style="padding: 0px; height: 100%;">
+                    <div class="card">
+                        <div class="card-header bg-danger">
+                            <strong style="float:left;" class="card-title text-light">Files in {{acviteFolder}}</strong>
+                            <div id="prepareBtn">
+                                    <!-- ng-click="doClickUpload()" -->
+                                <button style="float:right;"  class="right btn btn-sm btn-success btnUpload">
+                                    <i title="Upload file" class="fa fa-upload"></i> 
+                                </button>
+                                <input id="uploadBtn" type="file" hidden multiple />
+                            </div>
+                            
+                        </div>
+                        <div class="card-body">
+                            <ul id="listFiles">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="addFolderModal" class="example-modal modal fade">
+        <div class="modal modal-primary">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" style="position: absolute;">Enter Folder Name :</h4>
+              </div>
+              <div class="modal-body">
+                <div class="input-group" style="background-color : #fff;">
+                    <span class="input-group-addon">{{acviteFolderPath}}</span>
+                    <input type="text" class="form-control" name="folderName" placeholder="" style="background: #fff;">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" ng-click="addFolder($event)" class="btn btn-success btn-post-data">Add Folder</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+      </div>
+
+
+
+</div>

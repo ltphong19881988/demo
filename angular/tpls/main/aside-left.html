@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-sm navbar-default">
+
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="./"><img src="/img/backend-logo.png" alt="Logo"></a>
+            <a class="navbar-brand hidden" href="./"><img src="/img/backend-logo-2.png" alt="Logo"></a>
+        </div>
+
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/dashboard" title="Dashboard"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                </li>
+
+                <h3 class="menu-title">Profiles - Setting</h3><!-- /.menu-title -->
+                <li>
+                    <a href="/user/profiles" title="User profiles"> <i class="menu-icon fa fa-user"></i>Profiles </a>
+                </li>
+                <li>
+                    <a href="/user/authentication" title="2 FA"> <i class="menu-icon fa fa-shield"></i>2 FA </a>
+                </li>
+
+                <h3 class="menu-title">Wallets</h3><!-- /.menu-title -->
+                <li>
+                    <a href="/wallet/index" title="Deposit - Transfer"> <i class="menu-icon fa fa-cloud-download"></i>Deposit - Transfer </a>
+                </li>
+                <li>
+                    <a href="/wallet/withdraw" title="withdraw"> <i class="menu-icon fa fa-cloud-upload"></i>Withdraw </a>
+                </li>
+                <!-- <li>
+                    <a href="/wallet/histories" title="Histories"> <i class="menu-icon fa fa-upload"></i> Histories </a>
+                </li> -->
+
+                <h3 class="menu-title">Investment - Network</h3><!-- /.menu-title -->
+                <li>
+                    <a href="/investment/index" title="Investment"> <i class="menu-icon fa fa-money"></i>Investment </a>
+                </li>
+                <li>
+                    <a href="/user/members" title="Members"> <i class="menu-icon fa fa-users"></i>Members </a>
+                </li>
+                <li>
+                    <a href="/investment/commission" title="Commissions"> <i class="menu-icon fa fa-usd"></i>Commissions </a>
+                </li>
+                
+
+                <h3 class="menu-title">log out</h3><!-- /.menu-title -->
+                <li>
+                    <a href="/user/logout" target="_self"> <i class="menu-icon fa fa-sign-out"></i>Log Out </a>
+                </li>
+
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+
+    <style>
+    .navbar .navbar-nav li > a .menu-icon {
+        width: 25px;
+    }
+    .navbar .navbar-nav li > a {
+        padding: 5px 0;
+    }
+    </style>
+
+    <script>
+        menuChanged(location.href);
+    </script>

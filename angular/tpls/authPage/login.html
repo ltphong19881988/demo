@@ -1,0 +1,57 @@
+<div class="content-1 kryptunit-login-v2-group" ng-controller="loginCtrl">
+    <div class="panel panel-default data_background element-box-shadow register-v2" style="background-image: url(&quot;/img/background_register.png&quot;);">
+        
+        <div class="panel-heading text-left padding_30">
+            <img style="width: 345px;" src="/img/logo_login.png" class="img-responsive" alt="Logo">
+            <div style="width: 100%;display:inline-flex;">
+                <hr style="width:20%">
+                <p class="register_form" style="color: #fff;font-weight: 500;font-size: 21px;text-align:center;width:50%;padding-top:5px;"> Login Form</p>
+                <hr style="width:20%">
+            </div>
+        </div>
+
+        <div class="panel-body login-v2">
+                <form id="formLogin" method="post" ng-submit="submitLogin($event)">
+                    <div class="alert"></div>
+                    <div id="html_element">
+
+                        <div class="row login_custom">
+                            <p ></p>
+                            <div class="col-md-12">
+                                <label class="text-bold text-white">User Name </label><br>
+                                <input type="text" name="Login" class="input-login" placeholder="User name">
+                            </div>
+                            <div class="col-md-12">
+                                <label class="text-bold text-white">Password</label>
+                                <input type="password" name="Password" class="input-login" placeholder="Password">
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group has-feedback">
+                                    <div class="g-recaptcha" data-sitekey="6LfXNjsUAAAAAOPfroYZRzkZTlhKhjTxMQWC3ykd"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <ul class="list-inline login-steps">
+                                    <li>
+                                        <button type="submit" class="btn btn-cryptic register-step text-bold">Log in</button>
+                                    </li>
+                                    <p class="forgot_pasword" style="margin-top:3%">
+                                        <a href="/Account/forgotpassword" title="">
+                                            Forgot password
+                                        </a>
+                                        <br>
+                                        <a href="/Account/Resendemail" title="">
+                                            Did not get activation mail? Please try again.
+                                        </a>
+                                    </p>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+
+        </div>
+    </div>
+</div>

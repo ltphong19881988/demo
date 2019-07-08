@@ -1,0 +1,181 @@
+
+
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <aside class="profile-nav alt">
+                <section class="card">
+                    <div class="card-header bg-dark">
+                        <strong class="card-title text-light">Tất cả Thông báo</strong>
+                        <button style="float:right;" class="right btn btn-sm btn-success" data-toggle="modal" data-target="#addNotificationModal">
+                            <i title="Add new product" class="fa fa-plus"></i> Thêm mới Thông báo
+                        </button>
+                    </div>
+
+                    <div class="card-body">
+                        <div id="listProducts">
+                            <div class="table-responsive">
+                                <table datatable="" dt-options="dtOptionsNotification" dt-columns="dtColumnsNotification" class="row-border hover"></table>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+            </aside>
+    </div>
+
+</div>
+
+
+<div id="addNotificationModal" class="example-modal modal fade">
+    <div class="modal modal-primary">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" style="position: absolute;">Thêm mới thông báo :</h4>
+          </div>
+          <div class="modal-body">
+                <form id="formAddNotification" class="form-horizontal" ng-submit="submitAddNotification($event)">
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Tiêu đề : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                            <input type="text" ng-model="form.title" class="form-control" value="">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Nội dung : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                            <textarea ng-model="form.body"  class="form-control "></textarea>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Thời gian : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" datetime-picker="yyyy-MM-dd HH:mm:ss" ng-model="pickerAdd.date" is-open="pickerAdd.open" />
+                              <span class="input-group-btn">
+                                  <button type="button" class="btn btn-default" ng-click="openCalendar($event, 'pickerAdd')"><i class="fa fa-calendar"></i></button>
+                              </span>
+                                </p>
+                            <input type="hidden" id="startTimeAdd" value="{{pickerAdd.date}}" />
+                        </div>
+                        </div>
+                        <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">Model : </label></div>
+                                <div class="col-12 col-md-9 ui-widget">
+                                <p class="form-control-static">{{ pickerAdd.date }}</p>
+                            </div>
+                        </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary ">
+                            <i class="fa fa-dot-circle-o"></i> Thêm notification
+                        </button>
+                    </div>
+                </form>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" ng-click="editFolder('add')" class="btn btn-success">Add Folder</button> -->
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+
+<div id="editNotificationtModal" class="example-modal modal fade">
+    <div class="modal modal-primary">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" style="position: absolute;">Chỉnh sửa Notification :</h4>
+          </div>
+          <div class="modal-body">
+                <form id="formEditNotification" class="form-horizontal" ng-submit="submitEditNotification($event)">
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Tiêu đề : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                            <input type="text" ng-model="formEdit.title" class="form-control" value="">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Nội dung : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                            <textarea ng-model="formEdit.body"  class="form-control "></textarea>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Thời gian : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" datetime-picker="yyyy-MM-dd HH:mm:ss" ng-model="pickerEdit.date" is-open="pickerEdit.open" />
+                              <span class="input-group-btn">
+                                  <button type="button" class="btn btn-default" ng-click="openCalendar($event, 'pickerEdit')"><i class="fa fa-calendar"></i></button>
+                              </span>
+                                </p>
+                            <input type="hidden" id="startTimeEdit" value="{{pickerEdit.date}}" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class=" form-control-label">Model : </label></div>
+                        <div class="col-12 col-md-9 ui-widget">
+                            <p class="form-control-static">{{ pickerEdit.date }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary ">
+                            <i class="fa fa-dot-circle-o"></i> Chỉnh sửa
+                        </button>
+                    </div>
+                </form>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" ng-click="editFolder('add')" class="btn btn-success">Add Folder</button> -->
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+
+
+
+<script>
+    jQuery("#username").autocomplete({
+        source: function( request, response ) {
+            jQuery.ajax( {
+                type: "POST",
+                url: "/user/autocomplete",
+                data: {
+                    q: request.term
+                },
+                success: function( data ) {
+                    response(jQuery.map(data, function (item) {
+                        return {
+                            label: item.username ,
+                            value: item.username,
+                            id : item._id
+                        };
+                    }));
+                }
+            } );
+        },
+        minLength: 2,
+        select: function( event, ui ) {
+            //console.log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+        }
+    });
+    
+</script>

@@ -1,0 +1,116 @@
+
+
+<div class="pricing pricing--palden col-sm-12 col-md-6">
+    <div class="pricing__item" style="margin: 1em 0.5em;">
+        <div class="pricing__deco">
+            <svg class="pricing__deco-img" version="1.1" id="Layer_1" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="100px" viewBox="0 0 300 100" enable-background="new 0 0 300 100" xml:space="preserve">
+            <path class="deco-layer deco-layer--1" opacity="0.6" fill="#FFFFFF" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z"></path>
+            <path class="deco-layer deco-layer--2" opacity="0.6" fill="#FFFFFF" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z"></path>
+            <path class="deco-layer deco-layer--3" opacity="0.7" fill="#FFFFFF" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+H42.401L43.415,98.342z"></path>
+            <path class="deco-layer deco-layer--4" fill="#FFFFFF" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z"></path>
+                  </svg>
+            <div class="pricing__price" style="font-size: 2em;"><span class="pricing__currency"></span>
+                <span ng-bind="package.name"></span>
+                <span class="pricing__period"></span></div>
+            <h2 class="">$<span ng-bind="amount"></span> </h2>
+        </div>
+        <ul class="pricing__feature-list">
+            <li class="pricing__feature">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest"><h3 class="pricing__title text-bold">Direct Sponsor Bonus</h3></td>
+                        <td id="td-invest"><span ng-bind="package.sponsorBonus"></span>% F1</td>
+                    </tr>
+                </tbody></table>
+            </li>
+            <li class="pricing__feature">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest" rowspan="6" style="vertical-align:middle"><h3 class="pricing__title text-bold">Referral Bonus</h3></td>
+                    </tr>
+                    <tr id="tr-invest">
+                        <td id="td-invest"><span ng-bind="package.referralBonus.F2"></span>% F2</td>
+                    </tr>
+                    <tr id="tr-invest">
+                        <td id="td-invest"><span ng-bind="package.referralBonus.F3"></span>% F3</td>
+                    </tr>
+                    <tr id="tr-invest"><td id="td-invest"><span ng-bind="package.referralBonus.F4"></span>% F4</td></tr>
+
+                    <tr id="tr-invest"><td id="td-invest"><span ng-bind="package.referralBonus.F5"></span>% F5</td></tr>
+                    <tr id="tr-invest"><td id="td-invest"><span ng-bind="package.referralBonus.F6"></span>% F6</td></tr>
+
+                </tbody></table>
+            </li>
+            <li class="pricing__feature text-bold pricing__feature_name">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest">INTEREST</td>
+                        <td id="td-invest"><span ng-bind="package.interest"></span>%/DAY</td>
+                    </tr>
+                </tbody></table>
+            </li>
+            <li class="pricing__feature text-bold pricing__feature_name">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest">EXTRA BONUS</td>
+                        <td id="td-invest"><span ng-bind="package.extraBonus.min"></span> - <span ng-bind="package.extraBonus.max"></span>%/DAY</td>
+                    </tr>
+                </tbody></table>
+            </li>
+            <li class="pricing__feature text-bold pricing__feature_name">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest">CAPITAL BACK</td>
+                        <td id="td-invest"><span ng-bind="package.capitalBack"></span> DAY</td>
+                    </tr>
+                </tbody></table>
+            </li>
+            <li class="pricing__feature text-bold pricing__feature_name">
+                <table id="tb-invest">
+                    <tbody><tr id="tr-invest">
+                        <td id="td-invest">TRADE BONUS</td>
+                        <td id="td-invest"><span ng-bind="package.tradeBonus"></span>%</td>
+                    </tr>
+                </tbody></table>
+
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-6">
+        <div class="card" style="margin-top: 15px;">
+                <div class="card-header bg-dark">
+                    <strong class="card-title text-light">PAY PACKAGE</strong>
+                </div>
+                <div class="card-body ">
+                    <h4>Your available Money balance : $<span ng-bind="usdBalance">0</span></h4>
+                    <form id="formCreatePackage" class="form-horizontal" style="text-align:center" ng-submit="createPackage($event)">
+                        <input type="hidden" name="idPackage" value="{{package._id}}" />
+                        <input type="hidden" name="amount" value="{{amount}}" />
+                            <span style="color:green;">Your money number is enough for this action. Click the button bellow to finish :</span>
+                            <button type="submit" class="btn btn-success" style="padding: 5px 2.2em;cursor: pointer;"><i class="fa fa-registered"></i> Confrim</button>
+                    </form>
+                    <div id="payPackageError" style="display: none;">
+                        <span style="color:red;">Money number is not enough for this action or Empty.</span>
+                    </div>
+                    
+                </div>
+            </div>
+</div>
+
+<style>
+    h2 {
+        font-size: 32px !important;
+        line-height: 35px !important;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0px;
+        font-weight: bold;
+        color: #fff !important;
+    }
+</style>
