@@ -25,6 +25,7 @@ var liElementHtml = function(name, path){
 }
 
 var appendFilesToViewMedia = function(files, elementNode, $compile, $scope){
+    console.log('file ne', files);
     angular.element(elementNode).html('');
     files.forEach(element => {
         var abc = element.split('\\');
@@ -47,6 +48,7 @@ adminApp.controller("mediaCtrl", function($rootScope, $scope, $compile, $http){
         jQuery("#listFiles").html('');
         var valuePath = eleNode.attr('path');
         listAllFilesAndFolder($http, {value :  valuePath, type: "list"}, function(response){
+            console.log('file response', response);
             if(response.dirs.length > 0){
                 var parent = eleNode.parent().eq(0);
                 if(parent.find('ul').length == 0){
@@ -56,9 +58,9 @@ adminApp.controller("mediaCtrl", function($rootScope, $scope, $compile, $http){
                         angular.element(parent.find('ul').eq(0)).append( $compile(html)($scope) );
                     });
                 }
-                appendFilesToViewMedia (response.files, jQuery("#listFiles"), $compile, $scope);
+                
             }
-
+            appendFilesToViewMedia (response.files, jQuery("#listFiles"), $compile, $scope);
         })
     };
 
