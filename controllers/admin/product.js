@@ -126,9 +126,9 @@ router.post("/item", function(req, res, next){
         if(req.body.salePrice)
             salePrice = typeof parseFloat(req.body.salePrice) == "number" ? parseFloat(req.body.salePrice) : 0 ;
         var item = {
-            nameKey: change_alias(req.body.title),
-            idCategory : mongoose.Types.ObjectId(req.body.idCategory),
-            idCategoryType : cateFinded.idCategoryType,
+            nameKey: results.getNameKey,
+            idCategory : results.getCate.cateFinded._id,
+            idCategoryType : results.getCate.cateFinded.idCategoryType,
             postType : 1, 
             normalPrice : normalPrice,
             salePrice : salePrice,
