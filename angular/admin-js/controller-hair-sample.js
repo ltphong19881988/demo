@@ -122,7 +122,7 @@ adminApp.controller("hairSampleCtrl", function($rootScope, $scope, $http, $compi
 
     $scope.goToEdit = function(id){
         // console.log(id);
-        window.location = '/admin/service/' + id + '/edit' ;
+        window.location = '/admin/hair-sample/' + id + '/edit' ;
     }
 
     $scope.submitProduct = function(e){
