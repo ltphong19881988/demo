@@ -136,7 +136,8 @@ adminApp.controller("hairSampleCtrl", function($rootScope, $scope, $http, $compi
         params.data = formDatatoObj(params.data, jQuery("#formAddProduct"));
         submitProduct(params, $http, function(result){
             alert(result.mes);
-            if(result.status) window.location.reload();
+            console.log(result);
+            // if(result.status) window.location.reload();
         })
         e.preventDefault()
     }

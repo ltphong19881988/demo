@@ -99,22 +99,45 @@ router.post("/item", function(req, res, next){
     if( ! mongoose.Types.ObjectId.isValid(req.body.idCategory)){
         res.json({status: false, mes: "Chưa chọn danh mục"}); return;
     }
-    Category.findOne({_id : mongoose.Types.ObjectId(req.body.idCategory)}).exec(function(err, cateFinded){
-        if(err || cateFinded == null){
-            res.json({status: false, mes: "Danh mục không tồn tại"}); return;
+
+    async.parallel({
+        getCate : function(callback){
+            Category.findOne({_id : mongoose.Types.ObjectId(req.body.idCategory)}).exec(function(err, cateFinded){
+                if(err || cateFinded == null){
+                    callback(null, { status: false, mes : 'Không tìm thấy danh mục'});
+                }else{
+                    callback(null, {status : true, cateFinded : cateFinded});
+                }
+            })
+        },
+        getNameKey: function(callback){
+            Tool.getUniqueNameKey('nameKey', Tool.change_alias(req.body.title), Post, function(nameKey){
+                callback( null , nameKey );
+            })
         }
+    }, function(err, results){
+        if(results.getCate.status == false){
+            return res.json(results.getCate) ;
+        }
+        var normalPrice = 0;
+        if(req.body.nomarlPrice)
+            normalPrice = typeof parseFloat(req.body.nomarlPrice) == "number" ? parseFloat(req.body.nomarlPrice) : 0 ;
+        var salePrice = 0;
+        if(req.body.salePrice)
+            salePrice = typeof parseFloat(req.body.salePrice) == "number" ? parseFloat(req.body.salePrice) : 0 ;
         var item = {
             nameKey: change_alias(req.body.title),
             idCategory : mongoose.Types.ObjectId(req.body.idCategory),
             idCategoryType : cateFinded.idCategoryType,
             postType : 1, 
-            normalPrice : typeof parseFloat(req.body.nomarlPrice) == "number" ? parseFloat(req.body.nomarlPrice) : 0,
-            salePrice : typeof parseFloat(req.body.salePrice) == "number" ? parseFloat(req.body.salePrice) : 0,
+            normalPrice : normalPrice,
+            salePrice : salePrice,
             pictures : req.body.imgs,
             tags: [],
         }
         Post.create(item, function(err, post){
             // console.log('add post', err, post);
+            if(err != null) return res.json ({status: false, mes : 'Không lưu được, vui lòng thử lại sau'}) ;
             var postContent = {
                 idPost: post._id,
                 title : req.body.title,
@@ -125,13 +148,13 @@ router.post("/item", function(req, res, next){
             }
             PostContent.create(postContent, function(err, result){
                 // console.log('add post Content', err, result);
-                res.json({status: true, mes : "Thêm sản phẩm thành công", results : result});
+                res.json({status: true, mes : "Thêm thành công", post : post, postContent : result});
             })
             
         })
+
     })
-    
-    console.log(req.body);
+
 })
 
 router.get("/item/:id",  function(req, res, next){

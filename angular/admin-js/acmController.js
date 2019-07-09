@@ -36,7 +36,7 @@ var uploadListener = function(prepareDiv, contentDiv, $compile, $scope, $http){
         $scope.checkCountUpload = imgs.length;
         for(var i = 0; i < imgs.length; i++){
             var li = imgs.eq(i).parent();
-            var data = {type : 'upload', img : {data : imgs.eq(i).attr('src'), name: imgs.eq(i).attr('name')} , path: $scope.rootFolderPath};
+            var data = {type : 'upload', img : {data : imgs.eq(i).attr('src'), name: imgs.eq(i).attr('name')} , path: $scope.acviteFolderPath};
             uploadFiles($scope, $http, data, li, function(response){
                 // console.log(response);
             })
