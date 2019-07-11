@@ -111,16 +111,30 @@ router.post('/', function(req, res, next){
 })
 
 router.get('/:id', function(req, res, next){
-    var _id = require('mongoose').Types.ObjectId(req.body.key);
-    Post.findOne({_id : _id}, function(err, result){
-        if(result == null){
+    var _id = require('mongoose').Types.ObjectId(req.params.id);
+    Post.aggregate([
+        {
+            $match: {_id : _id},
+        },
+        {
+            $lookup:
+            {
+                from: "postcontents",
+                localField: "_id",
+                foreignField: "idPost",
+                as: "postContent"
+            },
+        },
+        { $unwind : "$postContent" },
+
+    ], function(err, result){
+        console.log(err, result);
+        if(result.length == 0){
             res.json({status : false, mes : "post not found"});
         }else{
-            PostContent.findOne({idPost: result._id, languageCode : 'vn'}).exec(function(err, pc){
-                res.json({status : false, mes : "user found", post : result, postContent : pc});
-            })
-            
+            res.json({status : true, post : result[0] });
         }
+        
     })
 })
 
