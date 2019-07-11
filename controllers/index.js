@@ -82,6 +82,11 @@ router.get('/setup', function(req, res) {
     // })
 });
 
+router.use('/uploads/*',  function(req, res, next){
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 router.get('/', function(req, res) {
     res.redirect("/admin");
@@ -92,6 +97,7 @@ router.get('/', function(req, res) {
     // };
     // res.render("layout/frontPage", data);
 })
+
 
 
 // router.get('/import-country', function(req, res) {

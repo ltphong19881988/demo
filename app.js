@@ -39,7 +39,6 @@ app.use(express.static(path.join(__dirname, 'angular')));
 // app.use(cookieParser());
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
-//var User   = require('./app/models/user'); // get our mongoose model
 // use morgan to log requests to the console
 app.use(morgan('dev'));
 // app.use(csrf({ cookie: true }));
@@ -60,21 +59,8 @@ app.use(morgan('dev'));
 
 
 // API ROUTES -------------------
-// we'll get to these in a second
-// get an instance of the router for api routes
-
-// TODO: route to authenticate a user (POST http://localhost:8080/api/authenticate)
-// route to authenticate a user (POST http://localhost:8080/api/authenticate)
-
-
-
-
-// apply the routes to our application with the prefix /api
-//app.use(express.static('public'));
-
 //Routes
-//app.use('/api', require('./app/controllers/api'));
-//app.use('/admin', require('./app/controllers/admin'));
+
 app.use('/', require('./controllers'));
 // app.use(express.errorHandler());
 // app.use(express.logger({
