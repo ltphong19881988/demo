@@ -46,6 +46,12 @@ var secretKey = config.secret;
 //     }
 // })
 
+router.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 router.post('/video', function(req, res, next){
     console.log('body', req.body);
     // var _id = require('mongoose').Types.ObjectId(req.body.key);
