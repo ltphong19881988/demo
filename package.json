@@ -3,7 +3,7 @@
   "main": "server.js",
   "dependencies": {
     "aspnet-identity-pw": "^1.0.2",
-    "async": "^2.6.1",
+    "async": "^2.6.4",
     "bitcoin": "^3.0.1",
     "blob-util": "^2.0.2",
     "body-parser": "^1.18.3",
