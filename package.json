@@ -18,7 +18,7 @@
     "file-manager-js": "^3.1.6",
     "ip": "^1.1.5",
     "jsonfile": "^4.0.0",
-    "jsonwebtoken": "^7.4.3",
+    "jsonwebtoken": "^9.0.0",
     "mongodb": "^3.1.1",
     "mongoose": "^4.13.17",
     "morgan": "^1.9.1",
